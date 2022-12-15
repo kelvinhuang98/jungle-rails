@@ -21,6 +21,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <li style="text-decoration: none; display: flex; justify-content: space-between; background-color: #e4e4e4; border-radius: 4px; padding: 10px; margin-top: 5px">
+        <% if current_user %>
+          <%= link_to "Logout", '/logout' %>
+        <% else %>
+          <span style="margin-right: 10px;"><%= link_to 'Login', '/login' %></span>
+          <span ><%= link_to 'Signup', '/signup' %></span>
+        <% end %>
+      </li>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <%# <li class="nav-item dropdown">
           <a

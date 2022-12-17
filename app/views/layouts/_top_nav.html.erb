@@ -21,14 +21,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <li style="text-decoration: none; display: flex; justify-content: space-between; background-color: #e4e4e4; border-radius: 4px; padding: 10px; margin-top: 5px">
-        <% if current_user %>
-          <%= link_to "Logout", '/logout' %>
-        <% else %>
-          <span style="margin-right: 10px;"><%= link_to 'Login', '/login' %></span>
-          <span ><%= link_to 'Signup', '/signup' %></span>
-        <% end %>
-      </li>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <%# <li class="nav-item dropdown">
           <a
@@ -49,11 +41,15 @@
             <% end %>
           <%# </ul>
         </li> %>
-        <li class="nav-link">
-          <%= link_to 'About Us', [:about, :index], class: "nav-link" %>
-        </li>
       </ul>
       <ul class="navbar-nav">
+        <li><%= link_to 'About Us', [:about, :index], class: "nav-link" %></li>
+        <% if current_user %>
+          <li><%= link_to "Logout", '/logout', class: "nav-link" %></li>
+        <% else %>
+          <li><%= link_to 'Login', '/login', class: "nav-link" %></li>
+          <li><%= link_to 'Signup', '/signup', class: "nav-link" %></li>
+        <% end %>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle text-danger"
@@ -69,8 +65,7 @@
             <li><%= link_to 'Dashboard', [:admin, :root], class: "nav-link" %></li>
             <li><%= link_to 'Products', [:admin, :products], class: "nav-link" %></li>
             <li><%= link_to 'Categories',  [:admin, :categories], class: "nav-link" %></li>
-            </ul>
-        </li>
+          </ul>
         <li class="nav-item end-0">
           <%= link_to cart_path, class: "nav-link " do %> <%= fa_icon "shopping-cart" %>
           My Cart (<%= cart.size %>) <% end %>

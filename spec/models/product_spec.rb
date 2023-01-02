@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  describe 'Product Validations' do
+  describe 'Validations' do
     context 'given 4 correct field inputs' do
       it 'will successfully save' do
         category = Category.new(name: 'Flowers')
